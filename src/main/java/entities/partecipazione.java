@@ -29,4 +29,7 @@ public class partecipazione {
             inverseJoinColumns = @JoinColumn(name = "persona_id")
     )
     private List<persona> persone;
+
+    @OneToMany(mappedBy = "partecipazione")
+    private List<eventi> eventi;
 }
