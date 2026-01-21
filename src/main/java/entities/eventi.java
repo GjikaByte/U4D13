@@ -33,9 +33,10 @@ public class eventi {
     @Column(name="numeroMassimoPartecipanti")
     private int  numeroMassimoPartecipanti;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "location_id", nullable = false)
     private location location;
+
 
     @ManyToOne
     @JoinColumn(name = "partecipazione_id", nullable = false)
