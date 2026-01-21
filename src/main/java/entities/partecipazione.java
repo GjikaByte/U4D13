@@ -22,12 +22,7 @@ public class partecipazione {
     @Enumerated(EnumType.STRING)
     private Stato stato;
 
-    @ManyToMany
-    @JoinTable(
-            name = "persona_partecipazione",
-            joinColumns = @JoinColumn(name = "partecipazione_id"),
-            inverseJoinColumns = @JoinColumn(name = "persona_id")
-    )
+    @OneToMany
     private List<persona> persone;
 
     @OneToMany(mappedBy = "partecipazione")

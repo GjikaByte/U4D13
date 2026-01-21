@@ -18,6 +18,7 @@ public class persona {
     private String cognome;
     private String email;
 
-    @ManyToMany(mappedBy = "persone")
-    private List<partecipazione> partecipazioni;
+    @ManyToOne
+    @JoinColumn(name = "partecipazione_id", nullable = false)
+    private partecipazione partecipazione;
 }
