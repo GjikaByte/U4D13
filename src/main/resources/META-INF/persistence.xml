@@ -10,6 +10,7 @@
         <class>entities.persona</class>
         <class>entities.partecipazione</class>
         <class>entities.eventi</class>
+        <class>entities.location</class>
         <properties>
             <property name="jakarta.persistence.jdbc.url"
                       value="jdbc:postgresql://localhost:5432/u4d13"/>
