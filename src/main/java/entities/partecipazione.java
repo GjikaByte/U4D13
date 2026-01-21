@@ -22,9 +22,42 @@ public class partecipazione {
     @Enumerated(EnumType.STRING)
     private Stato stato;
 
-    @OneToMany
-    private List<persona> persone;
+    @OneToMany(mappedBy = "PartecipazionePersone")
+    private List<persona> Persone;
 
-    @OneToMany(mappedBy = "partecipazione")
+    @OneToMany(mappedBy = "PartecipazioneEventi")
     private List<eventi> eventi;
+
+    public partecipazione() {
+    }
+
+    public partecipazione(Stato stato) {
+        this.stato = stato;
+    }
+
+    public List<eventi> getEventi() {
+        return eventi;
+    }
+
+    public UUID getPartecipazione_id() {
+        return partecipazione_id;
+    }
+
+    public List<persona> getPersone() {
+        return this.Persone;
+    }
+
+    public Stato getStato() {
+        return stato;
+    }
+
+    @Override
+    public String toString() {
+        return "partecipazione{" +
+                "eventi=" + eventi +
+                ", partecipazione_id=" + partecipazione_id +
+                ", stato=" + stato +
+                ", persone=" + Persone +
+                '}';
+    }
 }

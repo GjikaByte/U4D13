@@ -14,7 +14,7 @@ public class eventi {
         PRIVATO
     }
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue
     private long eventi_id;
 
     @Column(name="titolo", nullable = false, length = 30)
@@ -35,14 +35,12 @@ public class eventi {
 
     @ManyToOne
     @JoinColumn(name = "location_id", nullable = false)
-    private location location;
+    private location Location;
 
 
     @ManyToOne
     @JoinColumn(name = "partecipazione_id", nullable = false)
-    private partecipazione partecipazione;
-
-
+    private partecipazione PartecipazioneEventi;
 
     public eventi() {
     }

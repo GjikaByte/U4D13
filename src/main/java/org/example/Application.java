@@ -12,5 +12,8 @@ public class Application {
 
 
         System.out.println("Hello World!");
+
+        ef.close();
+        em.close();
     }
 }
