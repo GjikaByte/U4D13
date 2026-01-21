@@ -7,7 +7,9 @@
 
     <persistence-unit name="u4d13pu">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-
+        <class>entities.persona</class>
+        <class>entities.partecipazione</class>
+        <class>entities.eventi</class>
         <properties>
             <property name="jakarta.persistence.jdbc.url"
                       value="jdbc:postgresql://localhost:5432/u4d13"/>
