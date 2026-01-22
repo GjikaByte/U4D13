@@ -1,12 +1,16 @@
 package org.example;
 
+import dao.eventiDAO;
 import dao.locationDAO;
 import dao.partecipazioniDAO;
+import entities.eventi;
 import entities.location;
 import entities.partecipazione;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
+
+import java.time.LocalDate;
 
 public class Application {
     private static final EntityManagerFactory ef = Persistence.createEntityManagerFactory("u4d13pu");
@@ -25,8 +29,9 @@ public class Application {
         location l1DB = ld.getbyID("1227b345-6ebc-4068-9fa9-74a75574ffdd");
         partecipazione p1DB = pd.getbyID("1aea1319-c4a3-4056-8eac-801c5ab1e592");
 
-
-        System.out.println("Hello World!");
+        eventiDAO ed = new eventiDAO(em);
+        eventi e1 = new eventi("ajeje", LocalDate.now(),"blabls", eventi.TipoEvento.PUBBLICO,20, l1DB,p1DB);
+        ed.save(e1);
 
         ef.close();
         em.close();

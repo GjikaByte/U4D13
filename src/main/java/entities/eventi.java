@@ -45,12 +45,14 @@ public class eventi {
     public eventi() {
     }
 
-    public eventi(String titolo, LocalDate dataEvento, String descrizione,TipoEvento tipoEvento, int numeroMassimoPartecipanti) {
+    public eventi(String titolo, LocalDate dataEvento, String descrizione,TipoEvento tipoEvento, int numeroMassimoPartecipanti, location Location, partecipazione PartecipazioneEventi) {
         this.titolo = titolo;
         this.dataEvento = dataEvento;
         this.descrizione = descrizione;
         this.tipoEvento = tipoEvento;
         this.numeroMassimoPartecipanti = numeroMassimoPartecipanti;
+        this.Location = Location;
+        this.PartecipazioneEventi = PartecipazioneEventi;
     }
 
 
