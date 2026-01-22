@@ -5,6 +5,8 @@ import exceptions.NotFoundException;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
 
+import java.util.UUID;
+
 public class personaDAO {
     private final EntityManager em;
 
@@ -29,9 +31,9 @@ public class personaDAO {
 
     }
 
-    public persona getbyID(String eventId){
-        persona found = em.find(persona.class, eventId);
-        if (found == null) throw new NotFoundException(eventId);
+    public persona getbyID(String personaId){
+        persona found = em.find(persona.class, UUID.fromString(personaId));
+        if (found == null) throw new NotFoundException(personaId);
         return found;
     }
 

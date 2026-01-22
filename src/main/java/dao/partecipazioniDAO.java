@@ -6,6 +6,8 @@ import exceptions.NotFoundException;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
 
+import java.util.UUID;
+
 public class partecipazioniDAO {
     private final EntityManager em;
 
@@ -30,15 +32,15 @@ public class partecipazioniDAO {
 
     }
 
-    public eventi getbyID(String eventId){
-        eventi found = em.find(eventi.class, eventId);
-        if (found == null) throw new NotFoundException(eventId);
+    public partecipazione getbyID(String partecipazioneId){
+        partecipazione found = em.find(partecipazione.class, UUID.fromString(partecipazioneId));
+        if (found == null) throw new NotFoundException(partecipazioneId);
         return found;
     }
 
-    public void findByIdAndDelete(String eventID) {
+    public void findByIdAndDelete(String partecipazioneId) {
         // 1. Cerco lo studente
-        eventi found = this.getbyID(eventID);
+        partecipazione found = this.getbyID(partecipazioneId);
 
         // 2. Creo una nuova transazione
         EntityTransaction transaction = em.getTransaction();
@@ -53,6 +55,6 @@ public class partecipazioniDAO {
         transaction.commit();
 
         // 6. Log di avvenuta cancellazione
-        System.out.println("L'evento con id: " + eventID + " è stato eliminato correttamente!");
+        System.out.println("L'evento con id: " + partecipazioneId + " è stato eliminato correttamente!");
     }
 }

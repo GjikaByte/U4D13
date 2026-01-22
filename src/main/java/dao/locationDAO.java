@@ -5,6 +5,8 @@ import exceptions.NotFoundException;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
 
+import java.util.UUID;
+
 public class locationDAO {
     private final EntityManager em;
 
@@ -30,7 +32,7 @@ public class locationDAO {
     }
 
     public location getbyID(String locationID){
-        location found = em.find(location.class, locationID);
+        location found = em.find(location.class, UUID.fromString(locationID));
         if (found == null) throw new NotFoundException(locationID);
         return found;
     }
